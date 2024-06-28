@@ -22,7 +22,9 @@ wss.on("connection", (socket) => {
     sockets.push(socket);
     console.log("Connected to Browser");
     socket.on("close", () => console.log("Disconnected from Browser"));
-    socket.on("message", (message) => {
+    socket.on("message", (msg) => {
+        const message = JSON.parse(msg);
+        console.log(message.type, message.payload);
         sockets.forEach(aSocket => aSocket.send(`${message}`));
     });
     
