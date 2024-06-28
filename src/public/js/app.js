@@ -7,7 +7,10 @@ socket.addEventListener("open", () => {
 })
 
 socket.addEventListener("message", (message) => {
-    console.log("Just got this:", message.data, "from to server");
+    // console.log("Just got this:", message.data, "from to server");
+    const li = document.createElement("li");
+    li.innerText = message.data;
+    messageList.append(li);
 })
 
 socket.addEventListener("close", () => {
