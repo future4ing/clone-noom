@@ -21,10 +21,9 @@ wsServer.on("connection", (socket) => {
         console.log(`Socket Event:${event}`);
     })
     socket.on("enter_room", (roomName, done) => {
-        // console.log(roomName);
+        done(); // 프론트엔드의 showRoom() 실행
         socket.join(roomName);
-        done();
-        // console.log(socket.rooms);
+        socket.to(roomName).emit("welcome");
         
     });
 });
