@@ -51,3 +51,7 @@ socket.on("welcome", () => {
 socket.on("bye", () => {
     addMessage("someone left ㅠㅠ");
 })
+
+socket.on("new_message", (msg) => {
+    addMessage(msg);
+})
